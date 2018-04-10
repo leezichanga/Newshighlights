@@ -21,6 +21,7 @@ CSS
 No known bugs yet
 
 ## link to deployed site
+https://liznews.herokuapp.com/
 
 ## License and terms of use
 MIT License this application's source code is free for any open source projects
