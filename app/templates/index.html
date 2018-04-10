@@ -18,20 +18,17 @@
             <p>Click on the various tabs to continue</p>
             <hr/>
     <ul class="nav nav-tabs">
-            <li><a data-toggle="tab" href="#political">POLITICAL</a></li>
             <li><a data-toggle="tab" href="#general">GENERAL</a></li>
             <li><a data-toggle="tab" href="#sports">SPORTS</a></li>
             <li><a data-toggle="tab" href="#technology">TECHNOLOGY</a></li>
             <li><a data-toggle="tab" href="#entertainment">ENTERTAINMENT</a></li>
             <li><a data-toggle="tab" href="#health">HEALTH</a></li>
             <li><a data-toggle="tab" href="#science">SCIENCE</a></li>
+            <li><a data-toggle="tab" href="#political">POLITICAL</a></li>
             <li><a data-toggle="tab" href="#business">BUSINESS</a></li>
         </ul>
           <div class="tab-content">
-            <div id="political" class="tab-pane fade">
-                <!-- political news sources -->
-                {{ macro.displayNewsList(political) }}
-            </div>
+
             <div id="general" class="tab-pane fade">
 
                 <!--general news section-->
@@ -56,6 +53,10 @@
             <div id="business" class="tab-pane fade">
                 <!-- Business news sources -->
                 {{macro.displayNewsList(business)}}
+            </div>
+            <div id="political" class="tab-pane fade">
+                <!-- political news sources -->
+                {{ macro.displayNewsList(political) }}
             </div>
             <div id="science" class="tab-pane fade">
                 <!--Science news sources-->

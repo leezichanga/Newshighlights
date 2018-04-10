@@ -1,33 +1,22 @@
-import os
+from app import create_app
+from flask_script import Manager,Server
 
-class Config:
-    '''
-    General configuration parent class
-    '''
-    NEWS_API_BASE_URL = 'https://newsapi.org/v2/sources?category={}&apiKey={}'
-    ARTICLE_NEWS_URL ='https://newsapi.org/v2/top-headlines?sources={}&apiKey={}'
-    NEWS_API_KEY = os.environ.get('NEWS_API_KEY')
-    SECRET_KEY = os.environ.get('SECRET_KEY')
+# Creating app instance
+app = create_app('development')
 
-class ProdConfig(Config):
-    '''
-    Production configuration child class
+manager = Manager(app)
+manager.add_command('server',Server)
+@manager.command
+def test():
+    """Run the unit tests."""
+    import unittest
+    tests = unittest.TestLoader().discover('tests')
+    unittest.TextTestRunner(verbosity=2).run(tests)
 
-    Args:
-        Config: The parent configuration class with general configuration settings
-    '''
-    pass
+# """Run the unit tests."""
+# import unittest
+# tests = unittest.TestLoader().discover('tests')
+# unittest.TextTestRunner(verbosity=2).run(tests)
 
-class DevConfig(Config):
-    '''
-    Development configuration child class
-
-    Args:
-        Config: The parent configuration class with general configuration settings
-    '''
-    DEBUG = True
-
-config_options = {
-    'development':DevConfig,
-    'production':ProdConfig
-}
+if __name__ == '__main__':
+    manager.run()
